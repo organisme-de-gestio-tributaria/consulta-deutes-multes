@@ -1,0 +1,32 @@
+{
+	"ConsultaDeutes": {
+		"CodiINE10Municipi": "0810170005",
+		"DNINIFContribuent": "00000000",
+		"Idioma": "C"
+	},
+	"Deutes": [
+		{
+			"CodiExpedientAjuntament": "2400002597",
+			"CodiExpedientExecutiu": "24356227",
+			"CodiMunicipi": "100",
+			"DNINIF": "00000000",
+			"ImportMulta": 600,
+			"ImportPendent": 736.46,
+			"Matricula": "1234-ABC",
+			"NomMunicipi": "L'HOSPITALET DE LLOBREGAT",
+			"Titular": "NOM DEL TITULAR"
+		},
+		{
+			"CodiExpedientAjuntament": "2400002633",
+			"CodiExpedientExecutiu": "24356227",
+			"CodiMunicipi": "100",
+			"DNINIF": "00000000",
+			"ImportMulta": 500.0,
+			"ImportPendent": 500.0,
+			"Matricula": "5678-DEF",
+			"NomMunicipi": "L'HOSPITALET DE LLOBREGAT",
+			"Titular": "NOM DEL TITULAR"
+		}
+	],
+	"TeDeutes": true
+}

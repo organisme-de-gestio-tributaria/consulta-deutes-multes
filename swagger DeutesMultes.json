@@ -1,0 +1,252 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "DeutesMultes"
+	},
+	"host": "wsproves.orgt.diba.cat",
+	"basePath": "/DeutesMultes/DeutesMultesService.svc/rest",
+	"paths": {
+		"/GenerarDocument": {
+			"get": {
+				"summary": "GenerarDocument",
+				"description": "Genera document acreditatiu de si un NIF té o no multes pendents en un ajuntament",
+				"operationId": "ORGT.WebServices.DeutesMultes.DeutesMultesService.GenerarDocument",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "DNINIFContribuent",
+						"in": "query",
+						"description": "DNI o NIF",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "CodiINE10Municipi",
+						"in": "query",
+						"description": "Codi INE de 10 caràcters",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "Idioma",
+						"in": "query",
+						"description": "Idioma. Valors acceptats: 'C' o 'E', català o espanyol",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Resposta amb deutes",
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.DeutesMultes.DocumentDeutesMultesResult"
+						},
+						"examples": {
+							"application/json": {
+								"ConsultaDeutes": {
+									"CodiINE10Municipi": "0810170005",
+									"DNINIFContribuent": "00000000",
+									"Idioma": "C"
+								},
+								"Document": "representacioBase64documentPDF",
+								"TeDeutes": true
+							}
+						}
+					}
+				}
+			}
+		},
+		"/ObtenirDeutes": {
+			"get": {
+				"summary": "/rest/ObtenirDeutes",
+				"description": "Retorna els deutes de multes d'un NIF en un ajuntament",
+				"operationId": "ORGT.WebServices.DeutesMultes.DeutesMultesService.ObtenirDeutes",
+				"consumes": [
+					"application/json",
+					"application/xml"
+				],
+				"produces": [
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "DNINIFContribuent",
+						"in": "query",
+						"description": "DNI o NIF",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "CodiINE10Municipi",
+						"in": "query",
+						"description": "Codi INE de 10 caràcters",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "Idioma",
+						"in": "query",
+						"description": "Idioma. Valors acceptats: 'C' o 'E', català o espanyol",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Llistat de deutes de multes del DNI o NIF a l'ajuntament",
+						"schema": {
+							"$ref": "#/definitions/ORGT.WebServices.DeutesMultes.DeutesMultesResult"
+						},
+						"examples": {
+							"application/json": {
+								"ConsultaDeutes": {
+									"CodiINE10Municipi": "0810170005",
+									"DNINIFContribuent": "00000000",
+									"Idioma": "C"
+								},
+								"Deutes": [
+									{
+										"CodiExpedientAjuntament": "2400002597",
+										"CodiExpedientExecutiu": "24356227",
+										"CodiMunicipi": "100",
+										"DNINIF": "00000000",
+										"ImportMulta": 600,
+										"ImportPendent": 736.46,
+										"Matricula": "1234-ABC",
+										"NomMunicipi": "L'HOSPITALET DE LLOBREGAT",
+										"Titular": "NOM DEL TITULAR"
+									},
+									{
+										"CodiExpedientAjuntament": "2400002633",
+										"CodiExpedientExecutiu": "24356227",
+										"CodiMunicipi": "100",
+										"DNINIF": "00000000",
+										"ImportMulta": 500.0,
+										"ImportPendent": 500.0,
+										"Matricula": "5678-DEF",
+										"NomMunicipi": "L'HOSPITALET DE LLOBREGAT",
+										"Titular": "NOM DEL TITULAR"
+									}
+								],
+								"TeDeutes": true
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"ORGT.WebServices.DeutesMultes.ConsultaDeutesMultes": {
+			"required": [
+				"CodiINE10Municipi",
+				"DNINIFContribuent",
+				"Idioma"
+			],
+			"properties": {
+				"CodiINE10Municipi": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DNINIFContribuent": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Idioma": {
+					"type": "string",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.DeutesMultes.ConsultaDeutesMultes"
+		},
+		"ORGT.WebServices.DeutesMultes.DeuteMulta": {
+			"properties": {
+				"Matricula": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"DNINIF": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"Titular": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"CodiMunicipi": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"NomMunicipi": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"CodiExpedientAjuntament": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"CodiExpedientExecutiu": {
+					"type": "string",
+					"uniqueItems": false
+				},
+				"ImportMulta": {
+					"type": "number",
+					"format": "double",
+					"uniqueItems": false
+				},
+				"ImportPendent": {
+					"type": "number",
+					"format": "double",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.DeutesMultes.DeuteMulta"
+		},
+		"ORGT.WebServices.DeutesMultes.DeutesMultesResult": {
+			"properties": {
+				"ConsultaDeutes": {
+					"$ref": "#/definitions/ORGT.WebServices.DeutesMultes.ConsultaDeutesMultes"
+				},
+				"TeDeutes": {
+					"type": "boolean",
+					"uniqueItems": false
+				},
+				"Deutes": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ORGT.WebServices.DeutesMultes.DeuteMulta"
+					},
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.DeutesMultes.DeutesMultesResult"
+		},
+		"ORGT.WebServices.DeutesMultes.DocumentDeutesMultesResult": {
+			"properties": {
+				"ConsultaDeutes": {
+					"$ref": "#/definitions/ORGT.WebServices.DeutesMultes.ConsultaDeutesMultes"
+				},
+				"TeDeutes": {
+					"type": "boolean",
+					"uniqueItems": false
+				},
+				"Document": {
+					"type": "string",
+					"uniqueItems": false
+				}
+			},
+			"type": "object",
+			"format": "ORGT.WebServices.DeutesMultes.DocumentDeutesMultesResult"
+		}
+	}
+}

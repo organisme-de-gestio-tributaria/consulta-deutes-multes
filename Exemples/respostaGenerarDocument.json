@@ -1,0 +1,9 @@
+{
+	"ConsultaDeutes": {
+		"CodiINE10Municipi": "0810170005",
+		"DNINIFContribuent": "00000000",
+		"Idioma": "C"
+	},
+	"Document": "representacioBase64documentPDF",
+	"TeDeutes": true
+}
