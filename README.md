@@ -25,7 +25,6 @@ Els endpoints disponibles són:
 ## Exemples de crides i respostes
 A continuació es presenten diversos exemples de crides i respostes. Podeu trobar més informació a:
 * **[Especificació swagger](https://github.com/organisme-de-gestio-tributaria/consulta-deutes-multes/blob/main/swagger%20DeutesMultes.json). Podeu crear el vostre client de forma automàtica a partir d'aquest fitxer.**
-* [Comentaris del WSDL]([https://wsproves.orgt.diba.cat/AutoliquidacioGenerica/AutoliquidacioGenericaService.svc/mex?singleWsdl](https://wsproves.orgt.diba.cat/deutes/DeutesServiceREST.svc?singleWsdl). Podeu cancel·lar la sol·licitud de certificat a l'accedir al WSDL. Malgrat que aquest wsdl està disponible només per la versió SOAP, els noms dels camps i les explicacions són les mateixes que per la versió REST.
 * L’esquema de validació de les dades rebudes es troba en el mateix webservice a: https://wsproves.orgt.diba.cat/DeutesMultes/schema/DeutesMultes.xsd 
 * Cal notar que totes les dades de tipus text han d'estar en majúscules.
 
