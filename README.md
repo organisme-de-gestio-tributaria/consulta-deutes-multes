@@ -17,7 +17,7 @@ El servei es troba a les següents URL's:
 Respecte a la seguretat, cal tenir en compte:
 1. L’accés al web service serà via https i amb certificat d'òrgan. 
 1. Es comprovarà que les dades enviades corresponen a l’Ajuntament associat al certificat. Per fer les proves també cal fer servir un certificat d'òrgan.
-1. **Previ a les proves cal comunicar el certificat utilitzat a l’ORGT ja que és necessari instal·lar la clau pública als servidors de la ORGT.** Vegeu el procés de sol·licitud a la [pàgina principal](https://github.com/organisme-de-gestio-tributaria/organisme-de-gestio-tributaria)
+1. **Previ a les proves cal comunicar el certificat utilitzat a l’ORGT ja que és necessari instal·lar la clau pública als servidors de la ORGT.** Vegeu el procediment d'adhesió a l'inici d'aquest web, els detalls estan en el formulari d'adhesió.
 
 Els endpoints disponibles són:
 1. **GenerarDocument** Permet generar els documents acreditatius de que un DNI/NIF té o no té deutes de multes amb l'ajuntament. Cal introduir:
