@@ -35,7 +35,9 @@ A continuació es presenten diversos exemples de crides i respostes. Podeu troba
 * **[Especificació swagger](https://github.com/organisme-de-gestio-tributaria/consulta-deutes-multes/blob/main/swagger%20DeutesMultes.json). Podeu crear el vostre client de forma automàtica a partir d'aquest fitxer.**
 * L’esquema de validació de les dades rebudes es troba en el mateix webservice a: https://wsproves.orgt.diba.cat/DeutesMultes/schema/DeutesMultes.xsd 
 * Cal notar que totes les dades de tipus text han d'estar en majúscules.
+* Els imports es representen mitjançant nombres sense decimals en cèntims d'euro. Així, per exemple, l'import 101,23€ es representa amb 10123. D'altra banda, l'import de 102€ es representa com 10200. Es pot comprovar el fitxer XSD prèviament enllaçat.
 
+Els endpoints disponibles són:
 | Endpoint | Mètode HTTP | Exemples |
 |---|---|---|
 | GenerarDocument | GET | [URL petició](https://wsproves.orgt.diba.cat/DeutesMultes/DeutesMultesService.svc/rest/GenerarDocument?DNINIFContribuent=00000000&CodiINE10Municipi=0810170005&Idioma=C) <br> [Resposta](https://github.com/organisme-de-gestio-tributaria/consulta-deutes-multes/blob/main/Exemples/respostaGenerarDocument.json)
